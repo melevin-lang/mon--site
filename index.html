@@ -691,7 +691,11 @@ ateliers: [
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   function num(id, def) { var v = parseFloat(String($(id).value).replace(',', '.')); return isFinite(v) ? v : def; }
   function isBlocked(key) { return S.datesReservees.indexOf(key) !== -1; }
+  $('f-type').innerHTML = S.types.map(function (t) {
+    return '<option>' + esc(t) + '</option>';
+  }).join('');
 
+  
   /* ---------- Présentation ---------- */
   $('eyebrow').textContent = S.eyebrow;
   $('title').textContent = S.titre;
